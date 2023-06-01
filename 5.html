@@ -4,99 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>mi hotim 5!!!!</title>
 </head>
 <body>
     <script>
 
-class Animal {
-  constructor(name, age) {
-    this.id = Animal.nextId++;
-    this.name = name;
-    this.age = age;
-    this.children = [];
-    this.parents = [];
-  }
-
-  addChild(child) {
-    this.children.push(child);
-    child.parents.push(this);
-  }
-
-  removeChild(child) {
-    const index = this.children.indexOf(child);
-    if (index !== -1) {
-      this.children.splice(index, 1);
-      child.parents.splice(child.parents.indexOf(this), 1);
-    }
-  }
+class Animal { 
+    constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.children = [];
 }
 
-Animal.nextId = 1;
+    addChild(child) {
+    this.children.push(child);
+}
+
+    removeChild(child) {
+    const index = this.children.indexOf(child);
+    if (index !== -1) {
+    this.children.splice(index, 1);
+    }
+    }
+}
 
 class Cat extends Animal {
-  constructor(name, age) {
-    super(name, age);
-    this.type = "Cat";
-  }
+    constructor(name, age) {    
+    super(name, age);
+    this.type = "Cat";
+    }
 }
 
 class Dog extends Animal {
-  constructor(name, age) {
-    super(name, age);
-    this.type = "Dog";
-  }
+    constructor(name, age) {
+    super(name, age);
+    this.type = "Dog";
+}
 }
 
-class Cow extends Animal {
-  constructor(name, age) {
-    super(name, age);
-    this.type = "Cow";
-  }
+class Cow extends Animal {  
+    constructor(name, age) {    
+    super(name, age);
+    this.type = "Cow";
+    }
 }
 
-function findAnimalById(id) {
-  for (const animal of animals) {
-    if (animal.id === id) {
-      return animal;
-    }
-  }
-  return null;
-}
+const raiden = new Cat("Райден Сегун", 500);
+const scara = new Cat("Скарамучча", 5000);
+const opd = new Dog("мы", 6000);
+const opd1 = new Dog("не мы", 6000);
+const pivo = new Cow("pivo", 4);
+const piven = new Cow("pivenok", 1);
 
-function addChildInfo() {
-  const childId = parseInt(prompt("Введите ID ребенка:"));
-  
-  const child = findAnimalById(childId);
-  
-  if (child) {
-    const parents = child.parents.map(parent => `${parent.name} (${parent.type}, ${parent.age})`);
-    console.log(`Имя: ${child.name}, Тип: ${child.type}, Возраст: ${child.age}, Родители: ${parents.join(", ")}`);
-  } else {
-    console.log(`Животное с ID ${childId} не найдено`);
-  }
-}
-
-const animals = [];
-
-
-const raiden = new Cat("raiden", 3);
-const nahida = new Dog("nahiga", 5);
-const opd = new Cow("opd", 7); 
-animals.push(raiden, nahida, opd);
-
-
-const scara = new Cat("scara", 1);
 raiden.addChild(scara);
+pivo.addChild(piven);
+opd.addChild(opd1);
 
-const strannik = new Dog("strannik", 2);
-nahida.addChild(strannik);
-
-const ya = new Cow("ya", 3);
-opd.addChild(ya);
-
-
-addChildInfo();
+console.log(opd.children[0].name);
 
     </script>
 </body>
