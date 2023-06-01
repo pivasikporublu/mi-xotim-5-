@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi xotim 5!!!!</title>
+</head>
+<body>
+    <script>
+        let array = ["квадрат", "квадроцикл", "ква123123ртирант"];
+        console.log(starting(array));
+
+        function starting(array) {
+            if (!Array.isArray(array) || array.length === 0) return "";
+ 
+            let s = "",
+                count1 = array[0].length,
+                count2 = array.length;
+            for (let i = 0; i < count1; ++i) {
+                let equals = true,
+                    c = array[0][i];
+                for (let j = 1; j < count2; ++j) {
+                    if (c != array[j][i]) {
+                        equals = false;
+                        break;
+                    }
+                }
+                if (equals)
+                    s += c;
+            }
+            return s;
+        }
+    </script>
+</body>
+</html>
